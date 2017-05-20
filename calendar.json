@@ -12,80 +12,98 @@
   ],
   "moons" : [
     {
-      "name": "Eretria",
-      "offset": 0,
-      "period": 16
-    },
-    {
       "name": "Donnulan",
       "offset": 0,
-      "period": 28
+      "period": 28,
+      "size": 25
+    },
+    {
+      "name": "Eretria",
+      "offset": 0,
+      "period": 16,
+      "size": 15
     }
   ],
   "months" : [
     {
       "name" : "Blackstag",
-      "days" : 1
+      "season" : "winter solstice",
+      "days_num" : 1
     },
     {
       "name" : "Rhodan",
-      "days" : 28
+      "season" : "winter",
+      "days_num" : 28
     },
     {
       "name" : "Altum",
-      "days" : 28
+      "season" : "winter",
+      "days_num" : 28
     },
     {
       "name" : "Donnulus",
-      "days" : 28
+      "season" : "winter",
+      "days_num" : 28
     },
     {
       "name" : "Farmerstag",
-      "days" : 1
+      "season" : "spring equinox",
+      "days_num" : 1
     },
     {
       "name" : "Vastan",
-      "days" : 28
+      "season" : "spring",
+      "days_num" : 28
     },
     {
       "name" : "Deran",
-      "days" : 28
+      "season" : "spring",
+      "days_num" : 28
     },
     {
       "name" : "Eretrius",
-      "days" : 28
+      "season" : "spring",
+      "days_num" : 28
     },
     {
       "name" : "Kingstag",
-      "days" : 1
+      "season" : "summer solstice",
+      "days_num" : 1
     },
     {
       "name" : "Voran",
-      "days" : 28
+      "season" : "summer",
+      "days_num" : 28
     },
     {
       "name" : "Ogonan",
-      "days" : 28
+      "season" : "summer",
+      "days_num" : 28
     },
     {
       "name" : "Stolus",
-      "days" : 28
+      "season" : "summer",
+      "days_num" : 28
     },
     {
       "name" : "Sacrestag",
-      "days" : 1
+      "season" : "autumn equinox",
+      "days_num" : 1
     },
     {
       "name" : "Calamus",
-      "days" : 28
+      "season" : "autumn",
+      "days_num" : 28
     },
     {
       "name" : "Mortus",
-      "days" : 28
+      "season" : "autumn",
+      "days_num" : 28
     },
     {
       "name" : "Sorrus",
-      "days" : 28
+      "season" : "autumn",
+      "days_num" : 28
     }
   ]
   

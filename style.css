@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font: 16px/1.4 "gill sans";
+  color: #333;
+}
+table {
+  margin: 2em auto;
+  border-collapse: collapse;
+}
+th {
+  font-size: 14px;
+  text-align: left;
+  border-bottom: 2px solid #333;
+}
+td, th {
+  width: calc(100% / 7);
+  padding: 2px 4px;
+}
+td {
+  border-bottom: 1px solid #ccc;
+}
+td.lunar-event {
+  background: #ffd;
+}
+td.selected {
+  color: #d00;
+}
+
+caption {
+  /*border-top: 1px solid #ccc;*/
+}
+caption h2 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+caption .season {
+  font-family: palatino;
+  font-style: italic;
+  color: #999;
+  margin-top: 10px;
+}
+.day-number {
+  margin-bottom: 1.4em;
+}
+
+.info-bar {
+  position: fixed;
+  background: #eee;
+  width: 100%;
+  top: 0;
+  min-height: 20px;
+  padding: 5px;
+}
+.info-bar .season {
+  float: left;
+  font-family: palatino;
+  font-style: italic;
+}
+.info-bar .moons {
+  float: right;
+}
+.info-bar .moons svg {
+  display: block;
+  float: left;
+  margin-left: 5px;
+}
+.info-bar .moons > span:last-child svg {
+  margin-top: 10px;
+}
+.info-bar .date {
+  text-align: center;
+  width: 100%;
+}

@@ -30,24 +30,55 @@
     
     <div ng-app="calApp" ng-controller="calCtrl">
       
-      <h1>It is the year {{ cal.year }}</h1>
-      
-      <div ng-repeat="month in cal.months">
-        <h2>{{ month.name }}</h2>
-        <ul>
-        <li ng-repeat="day in month.days">
-          {{ day.day_of_year }}
-          {{ $index + 1 }}
-          {{ day.day_of_week }}
-          <br />
-          <span ng-repeat="moon in day.moons">
+      <div class="info-bar">
+        <div class="season">{{ selected.month.season }}</div>
+        <div class="moons">
+          <span ng-repeat="moon in selected.day.moons">
             <ng-bind-html
-              ng-bind-html="draw_moon(moon.phase)">
+              ng-bind-html="draw_moon(moon.phase, moon.size)">
             </ng-bind-html>
           </span>
-        </li>
-      </ul>
+        </div>
+        <div class="date">
+          <button ng-click="selectDayById(selected.id - 1)">&laquo;</button> 
+          Year {{ cal.year }} {{ selected.month.name }} {{ selected.day.number }}, {{ selected.day.day_of_week }} 
+          <button ng-click="selectDayById(selected.id + 1)">&raquo;</button></div>
       </div>
+      
+      <h1>It is the year {{ cal.year }}
+      <button ng-click="setYear(cal.year - 1)">Go down</button>
+      <button ng-click="setYear(cal.year + 1)">Go up</button>
+      
+      </h1>
+      
+      <table ng-repeat="month in cal.months">
+        <caption>
+          <h2>{{ month.name }}</h2>
+          <p class="season">{{ month.season }}</p>
+        </caption>
+        <tr>
+          <th ng-repeat="week_day in cal.week_days">
+            {{ week_day }}
+          </th>
+        </tr>
+        <tr ng-repeat="week in month.weeks">
+          <td 
+          ng-repeat="day in week" 
+          ng-click="selectDay(day, month)" 
+          ng-class="{'lunar-event': day.lunar_event, 'selected': day.day_of_year==selected.id}">
+            
+            <div class="day-number">{{ day.number }}</div>
+            
+            <span ng-repeat="moon in day.moons">
+              <ng-bind-html
+                ng-bind-html="draw_moon(moon.phase, moon.size)">
+              </ng-bind-html>
+            </span>
+            
+          </td>
+        </tr>
+      </ul>
+    </table>
       
     </div>
     
