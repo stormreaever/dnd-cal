@@ -70,7 +70,7 @@ app.controller('calCtrl', function($scope, $http) {
     
     $scope.cal = calendar.parse(data_cal);
     
-    $scope.selectDayById(0);
+    // $scope.selectDayById(0);
     console.log($scope.cal);
   }
   

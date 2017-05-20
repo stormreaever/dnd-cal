@@ -13,20 +13,6 @@
   </head>
 
   <body>
-    <svg width=25 height=25 viewbox="0 0 100 100">
-      <!-- draw bg moon -->
-      <circle cx="50" cy="50" r="50" fill="#dddddd"/>
-      <!-- draw curves -->
-      <path d="
-      M0 50 
-      C 0 0, 50 0, 50 0 
-      S 75 0, 75 50
-      S 50 100, 50 100
-      S 0 100, 0 50z
-      " fill="#999999"/>
-      
-      <circle cx="50" cy="50" r="49" fill="transparent" stroke="#999999"/>
-    </svg>
     
     <div ng-app="calApp" ng-controller="calCtrl">
       
@@ -44,42 +30,33 @@
           Year {{ cal.year }} {{ selected.month.name }} {{ selected.day.number }}, {{ selected.day.day_of_week }} 
           <button ng-click="selectDayById(selected.id + 1)">&raquo;</button></div>
       </div>
-      
-      <h1>It is the year {{ cal.year }}
-      <button ng-click="setYear(cal.year - 1)">Go down</button>
-      <button ng-click="setYear(cal.year + 1)">Go up</button>
-      
-      </h1>
-      
-      <table ng-repeat="month in cal.months">
-        <caption>
-          <h2>{{ month.name }}</h2>
-          <p class="season">{{ month.season }}</p>
-        </caption>
-        <tr>
-          <th ng-repeat="week_day in cal.week_days">
-            {{ week_day }}
-          </th>
-        </tr>
-        <tr ng-repeat="week in month.weeks">
-          <td 
-          ng-repeat="day in week" 
-          ng-click="selectDay(day, month)" 
-          ng-class="{'lunar-event': day.lunar_event, 'selected': day.day_of_year==selected.id}">
-            
-            <div class="day-number">{{ day.number }}</div>
-            
-            <span ng-repeat="moon in day.moons">
-              <ng-bind-html
-                ng-bind-html="draw_moon(moon.phase, moon.size)">
-              </ng-bind-html>
-            </span>
-            
-          </td>
-        </tr>
-      </ul>
-    </table>
-      
+          
+      <div class="content">
+        <h1>It is the year {{ cal.year }}
+        <button ng-click="setYear(cal.year - 1)">Go down</button>
+        <button ng-click="setYear(cal.year + 1)">Go up</button>
+        
+        </h1>
+        
+        <div class="table-wrapper"  ng-repeat="month in cal.months">
+          <table>
+            <caption>
+              <h2>{{ month.name }}</h2>
+              <p class="season">{{ month.season }}</p>
+            </caption>
+            <tr ng-repeat="week in month.weeks">
+              <td 
+              ng-repeat="day in week" 
+              ng-click="selectDay(day, month)" 
+              ng-class="{'lunar-event': day.lunar_event, 'selected': day.day_of_year==selected.id}">
+                
+                <div class="day-number">{{ day.number }}</div>
+                
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
     
 
