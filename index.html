@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>    
+    <title>Derevon Moon Calendar</title>
+    <link rel="icon" type="image/png" href="favicon.png" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">      
+    <link rel="stylesheet" href="style.css">  
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.min.js
+"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body>
+    <svg width=25 height=25 viewbox="0 0 100 100">
+      <!-- draw bg moon -->
+      <circle cx="50" cy="50" r="50" fill="#dddddd"/>
+      <!-- draw curves -->
+      <path d="
+      M0 50 
+      C 0 0, 50 0, 50 0 
+      S 75 0, 75 50
+      S 50 100, 50 100
+      S 0 100, 0 50z
+      " fill="#999999"/>
+      
+      <circle cx="50" cy="50" r="49" fill="transparent" stroke="#999999"/>
+    </svg>
+    
+    <div ng-app="calApp" ng-controller="calCtrl">
+      
+      <h1>It is the year {{ cal.year }}</h1>
+      
+      <div ng-repeat="month in cal.months">
+        <h2>{{ month.name }}</h2>
+        <ul>
+        <li ng-repeat="day in month.days">
+          {{ day.day_of_year }}
+          {{ $index + 1 }}
+          {{ day.day_of_week }}
+          <br />
+          <span ng-repeat="moon in day.moons">
+            <ng-bind-html
+              ng-bind-html="draw_moon(moon.phase)">
+            </ng-bind-html>
+          </span>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+
+  </body>
+</html>
